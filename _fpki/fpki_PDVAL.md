@@ -25,9 +25,9 @@ subnav:
 -	Some of the most common PDVAL purposes include: 
     - Giving a person access to a building, an office, or a computer by verifying their [PIV](https://playbooks.idmanagement.gov/piv/){:target="_blank"}{:rel="noopener noreferrer"} credential. 
     - Encrypting data or information.
-    - Verifying a digital signature (for example, in signed email and [digitally signed documents]https://playbooks.idmanagement.gov/signword//){:target="_blank"}{:rel="noopener noreferrer"}). 
+    - Verifying a digital signature (for example, in signed email and [digitally signed documents](https://playbooks.idmanagement.gov/signword//){:target="_blank"}{:rel="noopener noreferrer"}). 
 -	PDVAL occurs every time a certificate is used. It involves building a path from a certificate to a high-level trusted entity known as a trust anchor. 
--	A PDVAL path can be built with a locally configured [trust store]https://playbooks.idmanagement.gov/fpki/trust-stores){:target="_blank"}{:rel="noopener noreferrer"} or it can be done by using public repositories cited in the certificates themselves. A certificate repository is a system that contains certificates and information about them.
+-	A PDVAL path can be built with a locally configured [trust store](https://playbooks.idmanagement.gov/fpki/trust-stores){:target="_blank"}{:rel="noopener noreferrer"} or it can be done by using public repositories cited in the certificates themselves. A certificate repository is a system that contains certificates and information about them.
 -	The best certification path is typically the shortest path most likely to validate (be confirmed as sound or valid).
 -	Certification paths can be built in several different ways.
 -	If PDVAL finds that a certificate cannot be used to establish trust, the certificate is revoked (rejected) or considered unknown (the status cannot be determined).

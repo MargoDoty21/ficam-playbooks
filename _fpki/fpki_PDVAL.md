@@ -21,7 +21,7 @@ subnav:
 ---
 
 ## Key Takeaways
-- Path Discovery and Validation (PDVAL) is a two-step process for establishing a certification path and checking each digital certificate (an electronic item that contains information to verify a person’s identity) in the path to see if it is valid. Together, these steps establish trust so that a certificate can be used for a given purpose.
+- Path Discovery and Validation (PDVAL) is a two-step process for establishing a certification path and checking each digital certificate (an electronic item that contains information used to verify a person’s identity) in the path to see if it is valid. Together, these steps establish trust so that a certificate can be used for a given purpose.
 -	Some of the most common PDVAL purposes include: 
     - Giving a person access to a building, an office, or a computer by verifying their [PIV](https://playbooks.idmanagement.gov/piv/){:target="_blank"}{:rel="noopener noreferrer"} credential. 
     - Encrypting data or information.

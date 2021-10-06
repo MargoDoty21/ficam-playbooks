@@ -25,15 +25,15 @@ subnav:
 -	Some of the most common PDVAL purposes include: 
     - Giving a person access to a building, an office, or a computer by verifying their [PIV](https://playbooks.idmanagement.gov/piv/){:target="_blank"}{:rel="noopener noreferrer"} credential. 
     - Encrypting data or information.
-    - Verifying a digital signature (for example, signed email and digitally signed documents ). 
+    - Verifying a digital signature (for example, in signed email and [digitally signed documents]https://playbooks.idmanagement.gov/signword//){:target="_blank"}{:rel="noopener noreferrer"}). 
 -	PDVAL occurs every time a certificate is used. It involves building a path from a certificate to a high-level trusted entity known as a trust anchor. 
--	A PDVAL path can be built with a locally configured trust store  or it can be done by using public repositories cited in the certificates themselves. A certificate repository is a system that contains certificates and information about them.
+-	A PDVAL path can be built with a locally configured [trust store]https://playbooks.idmanagement.gov/fpki/trust-stores){:target="_blank"}{:rel="noopener noreferrer"} or it can be done by using public repositories cited in the certificates themselves. A certificate repository is a system that contains certificates and information about them.
 -	The best certification path is typically the shortest path most likely to validate (be confirmed as sound or valid).
 -	Certification paths can be built in several different ways.
 -	If PDVAL finds that a certificate cannot be used to establish trust, the certificate is revoked (rejected) or considered unknown (the status cannot be determined).
 
 ## What Is PDVAL?
-Before using a public key contained in a certificate, a relying party first has to determine the authenticity of that certificate and, specifically, the validity of all the certificates leading to a trusted public key, called a trust anchor. To do this, a two-step process called PDVAL, also called path processing, is performed:
+Before using a public key contained in a certificate, a relying party (an entity that receives and uses identity and credential data from an identity provider and makes access control decisions based on that data, in accordance with the Federal Trust Framework and established federation governance) first has to determine the authenticity of that certificate and, specifically, the validity of all the certificates leading to a trusted public key, called a trust anchor. To do this, a two-step process called PDVAL, also called path processing, is performed:
 
 1.	Trust Path Discovery – Establishes a certification path, which is an ordered list of certificates starting with a certificate that can be validated by one of the relying party's trust anchors and ending with the certificate to be validated (the target certificate).
 
@@ -48,28 +48,28 @@ The diagram below provides an example of a simple certification path, with three
 ## Certification Path Discovery
 Without valid certification paths, certificates cannot be validated and therefore cannot be trusted.  
 
-Path building implementations can be configured in different ways.  Some implementations may be more efficient (e.g., faster to complete), more successful (e.g., returns paths more likely to pass validation), or may yield the longest path with the most validity checks.
+Path building implementations can be configured in different ways.  Some implementations may be more efficient (e.g., faster to complete), more successful (e.g., return paths more likely to pass validation), or may yield the longest path with the most validity checks.
 
-Ideally, the path building algorithm is optimized with priorities to guide path decision-making, is capable of building paths successfully regardless of PKI structure, and can find all possible valid paths. 
+Ideally, the path building algorithm (a process or set of rules to be followed) is optimized with priorities to guide path decision-making, is capable of building paths successfully regardless of PKI structure, and can find all possible valid paths. 
 
 {% include alert-warning.html heading="Note" content="Even with an ideal, optimized algorithm, more than one path may need to be built before the best path is identified and provided to the validation step." %}
 
 ### What Is Best Path?
 The best certification path is typically the shortest path most likely to validate. The longer a path becomes, the greater the potential dilution of trust in the certification path. The longer and more complicated a path, the less likely it is to validate because of basic constraints, policies or policy constraints, name constraints, CRL availability, or even revocation.
 
-{% include alert-warning.html heading="Note" content="All user certificates on a PIV (e.g., PIV authentiation, PIV digital signature, PIV key encryption) must chain to the Federal Common Policy Certification Authority (FCPCA G2) as the trust anchor to be considered valid." %}
+{% include alert-warning.html heading="Note" content="All user certificates on a PIV (e.g., PIV authentication, PIV digital signature, PIV key encryption) must chain to the Federal Common Policy Certification Authority (FCPCA G2) as the trust anchor to be considered valid." %}
 
 ### How Are Certificates Found?
 Path building finds certificates in the relying party’s local repositories and cache. It may also use locations specified in the certificates it inspects during live path construction. For example, the algorithm may use: 
 
-- **Authority Information Access (AIA) Extension** which indicates how to access CA information and services for the issuer of a given certificate, this extention is required of all certificates within Federal PKI that are not roots;  
+- **Authority Information Access (AIA) Extension** which indicates how to access CA information and services for the issuer of a given certificate, this extension is required of all certificates within Federal PKI that are not roots;  
 - **cACertificate attribute** of the issuing CA's directory entry to identify where self-issued certificates are stored;
 - **issuedToThisCA element** of the cross-certificate pair attribute of that CA's directory entry to identify where all certificates issued to a CA (except for self-issued certificates) are stored; and
 - **issuedByThisCA element** of the cross-certificate pair attribute of the issuing CA's directory entry to identify where all certificates issued by a CA to a non-subordinate or peer CA are stored.
 
 Intermediate Certificates may be retrieved by any means available. This includes LDAP, HTTP, SQL, a local cache or certificate store, or as part of the security protocol itself, as is common practice with signed S/MIME messages and SSL/TLS sessions.
 
-{% include alert-warning.html heading="Note" content="A path may be discovered dynamically each time as needed or it may be constructed once and stored or cached. Products that incorporate PDVAL capabilties may vary in how they choose to implement this operation." %}
+{% include alert-warning.html heading="Note" content="A path may be discovered dynamically each time as needed or it may be constructed once and stored or cached. Products that incorporate PDVAL capabilities may vary in how they choose to implement this operation." %}
 
 ### How Is a Certification Path Chained Together?
 #### Subject/Issuer Name Chaining
@@ -137,7 +137,7 @@ A CRL is a digitally signed and time-stamped list of revoked certificates that i
 
 When a certificate-using system uses a certificate (e.g., for verifying a user's digital signature), that system not only checks the certificate signature and validity but also acquires the most recent CRL and checks that the certificate serial number is not on that CRL.  
 
-A new CRL is issued on a regular periodic basis (e.g., hourly, daily, or weekly), and CRLs have their own validity period as defined by the Next Update extention.  Many PDVAL products may cache a CRL by default until it reaches the date/time contained in the Next Update extension.
+A new CRL is issued on a regular periodic basis (e.g., hourly, daily, or weekly), and CRLs have their own validity period as defined by the Next Update extension.  Many PDVAL products may cache a CRL by default until it reaches the date/time contained in the Next Update extension.
 
 {% include alert-success.html heading="Note" content="FPKI CRLs are required to be refreshed at least every 18 hours." %}
 
@@ -170,4 +170,4 @@ The response for each of the certificates in a request consists of:
 - **Validity interval** – The validity interval of the response, after which the response is not considered valid
 - **Optional extensions** – Adds additional information to the response (e.g., CRLid extension used to indicate the CRL on which a revoked or onHold certificate is found)
 
-{% include alert-warning.html heading="Note" content="The **Revoked** status indicates that a certificate with the requested serial number should be rejected and the **Unknown** status indicates that the status could not be determined by this Responder, thereby allowing the relying party to decide whether it wants to try another source of status information, such as a CRL." %}
+{% include alert-warning.html heading="Note" content="The Revoked status indicates that a certificate with the requested serial number should be rejected and the Unknown status indicates that the status could not be determined by this Responder, thereby allowing the relying party to decide whether it wants to try another source of status information, such as a CRL." %}

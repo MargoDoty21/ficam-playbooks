@@ -7,8 +7,6 @@ sticky_sidenav: true
 sidenav: fpki
 
 subnav:
-  - text: Audience
-    href: '#audience'
   - text: Key Takeaways
     href: '#key-takeaways'
   - text: What Is PDVAL?
@@ -22,15 +20,17 @@ subnav:
     
 ---
 
-## Audience
-This page is intended for system administrators and engineers who are responsible for managing technical interoperability with internal and external X.509 certificates to facilitate their mission and business processes. It may also be useful as informational background for users who are issued and use personal certificates. 
-
 ## Key Takeaways
-- Trust must be established in order to use a certificate for a given purpose. The process for establishing trust includes multiple checks, but is primarily completed via a cryptographic relationship to a high-level trusted entity known as a trust anchor. A path must be built from any given certificate up to a known trust anchor each time the certificate is used; this can either be done with a locally configured trust store or it can also be done dynamically leveraging public repositories cited in the certificates themselves:
-  - IT administrators may need to configure enterprise, application, and/or user trust stores with both trusted root CA certificates and with intermediate CA certificates to facilitate interoperability. Many PIV issuing CAs are identified [in this playbook](../pivcas-and-agencies){:target="_blank"}{:rel="noopener noreferrer"}.
-  - IT administrators may need to configure their networks to allow for dynamic path building given information stored in public, internet accessible repositories.
-- Primary use cases that Path Discovery and Validation (PDVAL) supports can include authentication to IT resources (people and devices) and verification of a digital signature (e.g., signed email and signed documents).
-- A relying party is an entity that receives and consumes identity and credential data from an identity provider and makes access control decisions based on that data, in accordance with the Federal Trust Framework and established federation governance.
+- Path Discovery and Validation (PDVAL) is a two-step process for establishing a certification path and checking each digital certificate (an electronic item that contains information to verify a person’s identity) in the path to see if it is valid. Together, these steps establish trust so that a certificate can be used for a given purpose.
+-	Some of the most common PDVAL purposes include: 
+    - Giving a person access to a building, an office, or a computer by verifying their [PIV](../../piv/piv/){:target="_blank"} credential. 
+    - Encrypting data or information.
+    - Verifying a digital signature (for example, signed email and digitally signed documents ). 
+-	PDVAL occurs every time a certificate is used. It involves building a path from a certificate to a high-level trusted entity known as a trust anchor. 
+-	A PDVAL path can be built with a locally configured trust store  or it can be done by using public repositories cited in the certificates themselves. A certificate repository is a system that contains certificates and information about them.
+-	The best certification path is typically the shortest path most likely to validate (be confirmed as sound or valid).
+-	Certification paths can be built in several different ways.
+-	If PDVAL finds that a certificate cannot be used to establish trust, the certificate is revoked (rejected) or considered unknown (the status cannot be determined).
 
 ## What Is PDVAL?
 Before using a public key contained in a certificate, a relying party first has to determine the authenticity of that certificate and, specifically, the validity of all the certificates leading to a trusted public key, called a trust anchor. To do this, a two-step process called PDVAL, also called path processing, is performed:

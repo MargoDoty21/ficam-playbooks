@@ -17,7 +17,8 @@ subnav:
     href: '#trust-path-validation'
   - text: What Is Revocation Checking?
     href: '#what-is-revocation-checking'
-    
+  - text: PDVAL Troubleshooting
+    href: '#pdval-troubleshooting'   
 ---
 
 ## Key Takeaways
@@ -171,3 +172,7 @@ The response for each of the certificates in a request consists of:
 - **Optional extensions** – Adds additional information to the response (e.g., CRLid extension used to indicate the CRL on which a revoked or onHold certificate is found)
 
 {% include alert-warning.html heading="Note" content="The Revoked status indicates that a certificate with the requested serial number should be rejected and the Unknown status indicates that the status could not be determined by this Responder, thereby allowing the relying party to decide whether it wants to try another source of status information, such as a CRL." %}
+
+## PDVAL Troubleshooting
+
+Now that you have a working understanding of PDVAL you can use this [CA certificate bundle])](https://github.com/GSA/ficam-playbooks/blob/staging/_fpki/tools/CACertificatesValidatingToFederalCommonPolicyG2.p7b){:target="_blank"}{:rel="noopener noreferrer"}, which includes all CAs within the FPKI landscape, to address interoperability issues generated through trust store misconfiguration.

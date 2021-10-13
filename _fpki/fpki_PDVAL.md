@@ -175,4 +175,4 @@ The response for each of the certificates in a request consists of:
 
 ## PDVAL Troubleshooting
 
-Now that you have a working understanding of PDVAL you can use this [CA certificate bundle])](https://github.com/GSA/ficam-playbooks/blob/staging/_fpki/tools/CACertificatesValidatingToFederalCommonPolicyG2.p7b){:target="_blank"}{:rel="noopener noreferrer"}, which includes all CAs within the FPKI landscape, to address interoperability issues generated through trust store misconfiguration.
+Now that you have a working understanding of PDVAL you can use this [CA certificate bundle](https://github.com/GSA/ficam-playbooks/blob/staging/_fpki/tools/CACertificatesValidatingToFederalCommonPolicyG2.p7b){:target="_blank"}{:rel="noopener noreferrer"}, which includes all CAs within the FPKI landscape, to address interoperability issues generated through trust store misconfiguration.

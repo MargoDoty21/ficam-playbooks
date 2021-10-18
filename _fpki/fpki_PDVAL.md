@@ -192,4 +192,4 @@ To help streamline your work, search for "p7b" in the playbook and document cont
 2. Type **"p7b"** in the search box near the upper right corner of the page.
 3. Click the down arrow to see each instance of the term on the page. 
 
-**Note:** Not all of the playbooks listed above contain information on .p7b files. They contain background information on working with certificates.
+**Note:** Not all of the playbooks listed above contain information on .p7b files. Among other topics, the playbooks contain background information on working with certificates.

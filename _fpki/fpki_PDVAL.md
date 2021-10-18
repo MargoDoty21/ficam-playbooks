@@ -175,4 +175,21 @@ The response for each of the certificates in a request consists of:
 
 ## PDVAL Troubleshooting
 
-Now that you have a working understanding of PDVAL you can use this [CA certificate bundle](https://github.com/GSA/ficam-playbooks/blob/staging/_fpki/tools/CACertificatesValidatingToFederalCommonPolicyG2.p7b){:target="_blank"}{:rel="noopener noreferrer"}, which includes all CAs within the FPKI landscape, to address interoperability issues generated through trust store misconfiguration.
+PDVAL issues often occur because of trust store configuration glitches. You can use this [CA certificate bundle](https://github.com/GSA/ficam-playbooks/blob/staging/_fpki/tools/CACertificatesValidatingToFederalCommonPolicyG2.p7b){:target="_blank"}{:rel="noopener noreferrer"}, which includes all CAs within the FPKI landscape, to address interoperability issues generated through trust store misconfiguration.
+
+The bundle has a filename that ends in "p7b." A .p7b file contains only certificates and chain certificates (intermediate CAs), not the private key. See the playbooks and the document listed below for more information on working with certificates and .p7b files: 
+
+- [Distribute the certificate to operating systems](https://playbooks.idmanagement.gov/fpki/common/distribute-os/){:target="_blank"}{:rel="noopener noreferrer"} - This playbook page is part of the [Federal Common Policy CA Update](https://playbooks.idmanagement.gov/fpki/common/){:target="_blank"}{:rel="noopener noreferrer"} playbook.
+- [Distribute the CA certificates issued by the Federal Common Policy CA G2](https://playbooks.idmanagement.gov/fpki/common/certificates/){:target="_blank"}{:rel="noopener noreferrer"}
+- [Frequently Asked Questions](https://playbooks.idmanagement.gov/fpki/common/faq/){:target="_blank"}{:rel="noopener noreferrer"}
+- [https://playbooks.idmanagement.gov/piv/cert-trust/](https://playbooks.idmanagement.gov/piv/cert-trust/){:target="_blank"}{:rel="noopener noreferrer"}
+- [Network Ports and Protocols](https://playbooks.idmanagement.gov/piv/network/ports/){:target="_blank"}{:rel="noopener noreferrer"} - see "Appendix C: Intermediate Certificate Installation"
+- [PACS Test Card and Fault Path User Guide](https://www.idmanagement.gov/docs/pacstest-testuserguide.pdf){:target="_blank"}{:rel="noopener noreferrer"} 
+- [United States Federal PKI X.509 Certification Practice Statement (CPS) for the Federal Public Key Infrastructure (FPKI) Trust Infrastructure](https://www.idmanagement.gov/docs/fpki-fpkima-cps.pdf){:target="_blank"}{:rel="noopener noreferrer"} 
+
+To help streamline your work, search for "p7b" in the playbook and PDF content:
+1. Press **Ctrl + "F."**
+2. Type **"p7b"** in the search box near the upper right corner of the page.
+3. Click the down arrow to see each instance of the term on the page. 
+
+**Note:** Not all of the playbooks listed above contain information on .p7b files. They contain background information on working with certificates.

@@ -188,7 +188,7 @@ The bundle has a filename that ends in "p7b." A .p7b file contains only certific
 - [United States Federal PKI X.509 Certification Practice Statement (CPS) for the Federal Public Key Infrastructure (FPKI) Trust Infrastructure](https://www.idmanagement.gov/docs/fpki-fpkima-cps.pdf){:target="_blank"}{:rel="noopener noreferrer"} 
 
 To help streamline your work, search for "p7b" in the playbook and PDF content:
-1. Press **Ctrl + "F."**
+1. Press **Ctrl + F.**
 2. Type **"p7b"** in the search box near the upper right corner of the page.
 3. Click the down arrow to see each instance of the term on the page. 
 

@@ -183,9 +183,9 @@ The bundle has a filename that ends in "p7b." A .p7b file contains only certific
 - [Distribute the CA certificates issued by the Federal Common Policy CA G2](https://playbooks.idmanagement.gov/fpki/common/certificates/){:target="_blank"}{:rel="noopener noreferrer"}
 - [Frequently Asked Questions](https://playbooks.idmanagement.gov/fpki/common/faq/){:target="_blank"}{:rel="noopener noreferrer"}
 - [Certificate Trust](https://playbooks.idmanagement.gov/piv/cert-trust/){:target="_blank"}{:rel="noopener noreferrer"}
-- [Network Ports and Protocols](https://playbooks.idmanagement.gov/piv/network/ports/){:target="_blank"}{:rel="noopener noreferrer"} - See "Appendix C: Intermediate Certificate Installation."
-- [PACS Test Card and Fault Path User Guide](https://www.idmanagement.gov/docs/pacstest-testuserguide.pdf){:target="_blank"}{:rel="noopener noreferrer"} 
-- [United States Federal PKI X.509 Certification Practice Statement (CPS) for the Federal Public Key Infrastructure (FPKI) Trust Infrastructure](https://www.idmanagement.gov/docs/fpki-fpkima-cps.pdf){:target="_blank"}{:rel="noopener noreferrer"} 
+- [Network Ports and Protocols](https://playbooks.idmanagement.gov/piv/network/ports/){:target="_blank"}{:rel="noopener noreferrer"} 
+- [PACS Test Card and Fault Path User Guide](https://www.idmanagement.gov/docs/pacstest-testuserguide.pdf){:target="_blank"}{:rel="noopener noreferrer"} - See Appendix C: Intermediate Certificate Installation.
+- [United States Federal PKI X.509 Certification Practice Statement (CPS) for the Federal Public Key Infrastructure (FPKI) Trust Infrastructure](https://www.idmanagement.gov/docs/fpki-fpkima-cps.pdf){:target="_blank"}{:rel="noopener noreferrer"} - See Section 4.3.1, CA Actions During Certificate Issuance.
 
 To help streamline your work, search for "p7b" in the playbook and document content:
 1. Press **Ctrl + F.**
